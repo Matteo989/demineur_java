@@ -1,5 +1,3 @@
-voila	voila
-toussa	toussa
 
 /*
 guide des commandes Git
