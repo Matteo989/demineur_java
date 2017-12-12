@@ -56,8 +56,14 @@ public class FenetreGraphique extends JFrame implements ActionListener
 		item4.setActionCommand("partie_perso");
 		item4.addActionListener(this);
 
-		item5.setActionCommand("menu_quitter");
+		item5.setActionCommand("partie_quitter");
 		item5.addActionListener(this);
+
+		item6.setActionCommand("apropos_regles");
+		item6.addActionListener(this);
+
+		item7.setActionCommand("apropos_createurs");
+		item7.addActionListener(this);
 
 		JTextPane textPane = new JTextPane();
 		getContentPane().add(textPane);
@@ -66,7 +72,7 @@ public class FenetreGraphique extends JFrame implements ActionListener
 
 	public void actionPerformed(ActionEvent evenement)
  	{
-		if(evenement.getActionCommand().equals("menu_quitter"))
+		if(evenement.getActionCommand().equals("partie_quitter"))
 		{
 			if (JOptionPane.showConfirmDialog(this, "Voulez vous quitter ?", "Quitter", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE) == JOptionPane.YES_OPTION)
 			{
@@ -74,20 +80,34 @@ public class FenetreGraphique extends JFrame implements ActionListener
 			}
 		}
 
-		if (evenement.getActionCommand().equals("menu_charger"))
+		if (evenement.getActionCommand().equals("partie_debutant"))
 		{
-			JFileChooser selecteur = new JFileChooser();
-			selecteur.addChoosableFileFilter(new FileNameExtensionFilter("PDF Documents", "pdf"));
-			selecteur.addChoosableFileFilter(new FileNameExtensionFilter("Images", "jpg", "gif"));
-			int resultat = selecteur.showOpenDialog(this);
-			if(resultat == JFileChooser.APPROVE_OPTION)
-			{
- 				System.out.println("Fichier choisi: " +	selecteur.getSelectedFile().getAbsolutePath());
-			}
+			setSize(300,300);
 		}
 
+		if (evenement.getActionCommand().equals("partie_inter"))
+		{
+			setSize(400,600);
+		}
 
+		if (evenement.getActionCommand().equals("partie_expert"))
+		{
+			setSize(800,600);
+		}
 
+		if (evenement.getActionCommand().equals("partie_perso"))
+		{
+			setSize(1000,1000);
+		}
 
+		if (evenement.getActionCommand().equals("apropos_regles"))
+		{
+			
+		}
+
+		if (evenement.getActionCommand().equals("apropos_createurs"))
+		{
+			
+		}
 	}
 }
