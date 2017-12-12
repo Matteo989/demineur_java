@@ -44,6 +44,18 @@ public class FenetreGraphique extends JFrame implements ActionListener
 		JMenuItem item7 = new JMenuItem("Createurs");
 		menu2.add(item7);
 
+		item1.setActionCommand("partie_debutant");
+		item1.addActionListener(this);
+
+		item2.setActionCommand("partie_inter");
+		item2.addActionListener(this);
+
+		item3.setActionCommand("partie_expert");
+		item3.addActionListener(this);
+
+		item4.setActionCommand("partie_perso");
+		item4.addActionListener(this);
+
 		item5.setActionCommand("menu_quitter");
 		item5.addActionListener(this);
 
@@ -73,6 +85,8 @@ public class FenetreGraphique extends JFrame implements ActionListener
  				System.out.println("Fichier choisi: " +	selecteur.getSelectedFile().getAbsolutePath());
 			}
 		}
+
+
 
 
 	}
