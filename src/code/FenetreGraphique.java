@@ -6,6 +6,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class FenetreGraphique extends JFrame implements ActionListener
 {
+	Dessin dessin = null;
+
 	public FenetreGraphique(String nom)
 	{
 		setTitle(nom);
@@ -14,6 +16,7 @@ public class FenetreGraphique extends JFrame implements ActionListener
 		setResizable(false);
 		setAlwaysOnTop(true);
 		setVisible(true);
+
 
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -70,6 +73,7 @@ public class FenetreGraphique extends JFrame implements ActionListener
 
 	}
 
+
 	public void actionPerformed(ActionEvent evenement)
  	{
 		if(evenement.getActionCommand().equals("partie_quitter"))
@@ -110,4 +114,11 @@ public class FenetreGraphique extends JFrame implements ActionListener
 			
 		}
 	}
+}
+
+class GestionnaireFenetre extends WindowAdapter {
+
+    public void windowClosing(WindowEvent e) {
+	System.exit(0);
+    }
 }

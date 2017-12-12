@@ -15,21 +15,21 @@ abstract class Case {
 
     Case(int xx,int yy) {
 		Cord_x = xx;
-		cord_y = yy;
+		Cord_y = yy;
     }
 
     public static  void initJeu(int l,int h) {
 		largeur = l+2;
 		hauteur = h+2;
-		tableau = new tableau[largeur][hauteur];
+		tableau = new Case[largeur][hauteur];
     }
 
     boolean estDecouverte() {
-		return (statut == DECOUVERTE);
+		return (stat == DECOUVERTE);
     }
 
     boolean estMarquee() {
-		return (statut == MARQUEE);
+		return (stat == MARQUEE);
     }
 
     boolean marqueCase() { 
