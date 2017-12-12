@@ -21,20 +21,18 @@ public class FenetreGraphique extends JFrame implements ActionListener
 		JMenu menu = new JMenu("Partie");
 		menuBar.add(menu);
 
-		JMenuItem item1 = new JMenuItem("Nouveau");
+		
+		JMenuItem item1 = new JMenuItem("Debutant");
 		menu.add(item1);
-		menu.add(new JSeparator());
-		JMenuItem item2 = new JMenuItem("Debutant");
+		JMenuItem item2 = new JMenuItem("Intermediaire");
 		menu.add(item2);
-		JMenuItem item3 = new JMenuItem("Intermediaire");
+		JMenuItem item3 = new JMenuItem("Expert");
 		menu.add(item3);
-		JMenuItem item4 = new JMenuItem("Expert");
+		JMenuItem item4 = new JMenuItem("Personnalisee");
 		menu.add(item4);
-		JMenuItem item5 = new JMenuItem("Personnalisee");
-		menu.add(item5);
 		menu.add(new JSeparator());
-		JMenuItem item8 = new JMenuItem("Quitter");
-		menu.add(item8);
+		JMenuItem item5 = new JMenuItem("Quitter");
+		menu.add(item5);
 
 
 		JMenu menu2 = new JMenu("A propos");
@@ -46,8 +44,8 @@ public class FenetreGraphique extends JFrame implements ActionListener
 		JMenuItem item7 = new JMenuItem("Createurs");
 		menu2.add(item7);
 
-		item8.setActionCommand("menu_quitter");
-		item8.addActionListener(this);
+		item5.setActionCommand("menu_quitter");
+		item5.addActionListener(this);
 
 		JTextPane textPane = new JTextPane();
 		getContentPane().add(textPane);
@@ -75,5 +73,7 @@ public class FenetreGraphique extends JFrame implements ActionListener
  				System.out.println("Fichier choisi: " +	selecteur.getSelectedFile().getAbsolutePath());
 			}
 		}
+
+
 	}
 }

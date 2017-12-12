@@ -8,6 +8,6 @@ public class Principal
 {
 	public static void main(String[] args)
 	{
-		FenetreGraphique fenetre = new FenetreGraphique("Menu");
+		FenetreGraphique fenetre = new FenetreGraphique("Demineur");
 	}
 }
