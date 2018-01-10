@@ -73,7 +73,7 @@ public class Demineur extends JFrame implements ActionListener
 		HAUTEUR = hauteur;
 		LARGEUR = largeur;
 		cases_libres = LARGEUR*HAUTEUR;
-		setSize(HAUTEUR*16, LARGEUR*16);
+		setSize(LARGEUR*20, HAUTEUR*20);
 
 		//setBorder(new );
 		GridLayout gl = new GridLayout();
