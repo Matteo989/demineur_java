@@ -29,7 +29,7 @@ public class Createurs extends javax.swing.JFrame {
         jEditorPane1 = new javax.swing.JEditorPane();
  
         try {
-            URL url = new URL("http://matteo989.alwaysdata.net/createurs.html");
+            URL url = new URL("http://matteo989.alwaysdata.net/demineur/createurs.html");
             HTMLEditorKit kit = new HTMLEditorKit();
             StyleSheet style = new StyleSheet();
             style.setBase(url);
