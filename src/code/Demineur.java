@@ -11,13 +11,14 @@ public class Demineur extends JFrame implements ActionListener
 	private int HAUTEUR;
 	private int cases_libres;
 	private int nbMines;
-	private Segment affMines = new Segment();
-	private Segment affTemps = new Segment();
-	private Temps temps = new Temps(affTemps);
+	private int DIFF;
+	private Segment affichageMines = new Segment();
+	private Segment affichageTemps = new Segment();
+	private Temps temps = new Temps(affichageTemps);
 	private JButton nouveau = new JButton(new ImageIcon("../images/good.png"));
 	private Icon good, loose, search, win;
 
-	public Demineur(int hauteur, int largeur, int nbMines)
+	public Demineur(int hauteur, int largeur, int nbMines, int difficulte)
 	{
 
 		setTitle("Demineur");
@@ -77,21 +78,25 @@ public class Demineur extends JFrame implements ActionListener
 		item7.setActionCommand("apropos_createurs");
 		item7.addActionListener(this);
 
-		affMines.setMaximumSize(new Dimension(49, 27));
-		affMines.setValeur(nbMines);
-		affTemps.setMaximumSize(new Dimension(49, 27));
+		nouveau.setActionCommand("nouveau");
+		nouveau.addActionListener(this);
+
+		affichageMines.setMaximumSize(new Dimension(49, 27));
+		affichageMines.setValeur(nbMines);
+		affichageTemps.setMaximumSize(new Dimension(49, 27));
 		nouveau.setMaximumSize(new Dimension(25, 25));
 		nouveau.setMinimumSize(new Dimension(25, 25));
 		nouveau.setPreferredSize(new Dimension(25,25));
 
 		JPanel barreHaut = new JPanel();
 		barreHaut.setLayout(new BoxLayout(barreHaut, BoxLayout.LINE_AXIS));
-		barreHaut.add(affMines, null);
+		barreHaut.add(affichageMines, null);
 		barreHaut.add(nouveau);
-		barreHaut.add(affTemps, null);
+		barreHaut.add(affichageTemps, null);
 
 		HAUTEUR = hauteur;
 		LARGEUR = largeur;
+		DIFF = difficulte;
 		cases_libres = LARGEUR*HAUTEUR;
 		setSize(LARGEUR*25, HAUTEUR*30);
 
@@ -130,19 +135,19 @@ public class Demineur extends JFrame implements ActionListener
 		if (evenement.getActionCommand().equals("partie_debutant"))
 		{
 			this.dispose();
-			new Demineur(8, 8, 10);
+			new Demineur(8, 8, 10, 1);
 		}
 
 		if (evenement.getActionCommand().equals("partie_inter"))
 		{
 			this.dispose();
-			new Demineur(16, 16, 40);
+			new Demineur(16, 16, 40, 2);
 		}
 
 		if (evenement.getActionCommand().equals("partie_expert"))
 		{
 			this.dispose();
-			new Demineur(16, 30, 99);
+			new Demineur(16, 30, 99, 3);
 		}
 
 		if (evenement.getActionCommand().equals("partie_perso"))
@@ -159,6 +164,28 @@ public class Demineur extends JFrame implements ActionListener
 		{
 			Createurs createurs = new Createurs();
 		}
+
+		if (evenement.getActionCommand().equals("nouveau"))
+		{
+			this.dispose();
+			if (DIFF==1)
+			{
+				new Demineur(8, 8, 10, 1);
+			}
+			else if (DIFF==2)
+			{
+				new Demineur(16, 16, 40, 2);
+			}
+			else if (DIFF==3)
+			{
+				new Demineur(16, 30, 99, 3);
+			}
+		}
+	}
+
+	public void nouveau()
+	{
+
 	}
 
 	class GestionnaireFenetre extends WindowAdapter
