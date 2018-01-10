@@ -7,6 +7,7 @@ public class Principal
 {
 	public static void main(String[] args)
 	{
+		new Demineur(8, 8);
 		FenetreGraphique fenetre = new FenetreGraphique("Demineur");
 	}
 }
