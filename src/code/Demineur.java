@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
+import javax.swing.BoxLayout;
 
 public class Demineur extends JFrame implements ActionListener
 {
@@ -15,7 +16,7 @@ public class Demineur extends JFrame implements ActionListener
 
 		setTitle("Demineur");
 		setLocationRelativeTo(null);
-		setResizable(false);
+		setResizable(true);
 		setAlwaysOnTop(true);
 		setVisible(true);
 
@@ -70,21 +71,37 @@ public class Demineur extends JFrame implements ActionListener
 		item7.setActionCommand("apropos_createurs");
 		item7.addActionListener(this);
 
+		JPanel barreHaut = new JPanel();
+		barreHaut.setLayout(new BoxLayout(barreHaut, BoxLayout.LINE_AXIS));
+		barreHaut.add(new JButton("Bouton 1"));
+		barreHaut.add(new JButton("Bouton 2"));
+		barreHaut.add(new Timer());
+
 		HAUTEUR = hauteur;
 		LARGEUR = largeur;
 		cases_libres = LARGEUR*HAUTEUR;
-		setSize(LARGEUR*20, HAUTEUR*20);
+		setSize(LARGEUR*25, HAUTEUR*30);
 
-		//setBorder(new );
-		GridLayout gl = new GridLayout();
+	    GridLayout gl = new GridLayout();
 	    gl.setColumns(LARGEUR);
 	    gl.setRows(HAUTEUR);
-	    this.setLayout(gl);
+
+		JPanel jeu = new JPanel();
+		jeu.setLayout(gl);
 
 	    for (int i=0; i < cases_libres; i++)
 	    {   
-	        getContentPane().add(new JButton(""));
+	        jeu.add(new Case());
 	    }
+
+	    JPanel fenetre = new JPanel();
+	    fenetre.setLayout(new BoxLayout(fenetre, BoxLayout.PAGE_AXIS));
+	    fenetre.add(barreHaut);
+	    fenetre.add(jeu);
+			
+	    this.getContentPane().add(fenetre);
+	    this.setVisible(true);
+
 	}
 
 	public void actionPerformed(ActionEvent evenement)
@@ -100,21 +117,18 @@ public class Demineur extends JFrame implements ActionListener
 		if (evenement.getActionCommand().equals("partie_debutant"))
 		{
 			this.dispose();
-			setSize(300,300);
 			new Demineur(8, 8);
 		}
 
 		if (evenement.getActionCommand().equals("partie_inter"))
 		{
 			this.dispose();
-			setSize(400,600);
 			new Demineur(16, 16);
 		}
 
 		if (evenement.getActionCommand().equals("partie_expert"))
 		{
 			this.dispose();
-			setSize(800,600);
 			new Demineur(16, 30);
 		}
 
