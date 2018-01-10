@@ -1,6 +1,9 @@
-import java.awt.Graphics;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 abstract class Case {
+
 	public final static int tailleCase = 15;
 	public final static int MARQUEE = 2, DECOUVERTE = 1;
 	

@@ -2,12 +2,10 @@ import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class FenetreGraphique extends JFrame implements ActionListener
 {
-	Dessin dessin = null;
-
+	
 	public FenetreGraphique(String nom)
 	{
 		setTitle(nom);
@@ -68,9 +66,6 @@ public class FenetreGraphique extends JFrame implements ActionListener
 		item7.setActionCommand("apropos_createurs");
 		item7.addActionListener(this);
 
-		JTextPane textPane = new JTextPane();
-		getContentPane().add(textPane);
-
 	}
 
 
@@ -87,16 +82,19 @@ public class FenetreGraphique extends JFrame implements ActionListener
 		if (evenement.getActionCommand().equals("partie_debutant"))
 		{
 			setSize(300,300);
+			new Demineur(8, 8);
 		}
 
 		if (evenement.getActionCommand().equals("partie_inter"))
 		{
 			setSize(400,600);
+			new Demineur(16, 16);
 		}
 
 		if (evenement.getActionCommand().equals("partie_expert"))
 		{
 			setSize(800,600);
+			new Demineur(16, 30);
 		}
 
 		if (evenement.getActionCommand().equals("partie_perso"))
@@ -106,12 +104,12 @@ public class FenetreGraphique extends JFrame implements ActionListener
 
 		if (evenement.getActionCommand().equals("apropos_regles"))
 		{
-			
+			Regles regles = new Regles();
 		}
 
 		if (evenement.getActionCommand().equals("apropos_createurs"))
 		{
-			
+			Createurs createurs = new Createurs();
 		}
 	}
 }
