@@ -1,6 +1,3 @@
-package demin;
-
-
 public class Temps implements Runnable {
   Thread thread;
   Segment aff;
