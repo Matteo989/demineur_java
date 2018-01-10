@@ -9,7 +9,6 @@ public class Demineur extends JFrame
 	private int LARGEUR;
 	private int HAUTEUR;
 	private int cases_libres;
-	Casem[][] test;
 
 	public Demineur(int hauteur, int largeur)
 	{
@@ -24,7 +23,7 @@ public class Demineur extends JFrame
 
 	    for (int i=0; i < cases_libres; i++)
 	    {   
-	        getContentPane().display(new JButton(""));
+	        getContentPane().add(new JButton(""));
 	    }
 
 	    this.setVisible(true);
