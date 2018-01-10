@@ -5,7 +5,7 @@ import javax.swing.*;
 import javax.swing.border.*;
 import javax.swing.BoxLayout;
 
-public class Demineur extends JFrame implements ActionListener
+public class Demineur extends JFrame implements ActionListener 
 {
 	private int LARGEUR;
 	private int HAUTEUR;
@@ -13,7 +13,7 @@ public class Demineur extends JFrame implements ActionListener
 	private Segment affMines = new Segment();
 	private Segment affTemps = new Segment();
 	private Temps temps = new Temps(affTemps);
-	private JButton nouveau = new JButton();
+	private JButton nouveau = new JButton(new ImageIcon("../images/good.png"));
 	private Icon good, loose, search, win;
 
 	public Demineur(int hauteur, int largeur)
@@ -21,7 +21,7 @@ public class Demineur extends JFrame implements ActionListener
 
 		setTitle("Demineur");
 		setLocationRelativeTo(null);
-		setResizable(true);
+		setResizable(false);
 		setAlwaysOnTop(true);
 		setVisible(true);
 
@@ -80,11 +80,7 @@ public class Demineur extends JFrame implements ActionListener
 		affTemps.setMaximumSize(new Dimension(49, 27));
 		nouveau.setMaximumSize(new Dimension(25, 25));
 		nouveau.setMinimumSize(new Dimension(25, 25));
-
-		URL location;
-		location = java.lang.ClassLoader.getSystemResource("images/good.png");
-		good = new ImageIcon(location);
-		nouveau.setIcon(good);
+		nouveau.setPreferredSize(new Dimension(25,25));
 
 		JPanel barreHaut = new JPanel();
 		barreHaut.setLayout(new BoxLayout(barreHaut, BoxLayout.LINE_AXIS));
