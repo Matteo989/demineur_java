@@ -4,6 +4,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
 import javax.swing.BoxLayout;
+import javax.swing.SwingUtilities;
 
 public class Demineur extends JFrame implements ActionListener 
 {
@@ -17,6 +18,8 @@ public class Demineur extends JFrame implements ActionListener
 	private Temps temps = new Temps(affichageTemps);
 	private JButton btNouveau = new JButton(new ImageIcon("../images/good.png"));
 	private Icon good, loose, search, win;
+	private JButton[][] choix = new JButton[HAUTEUR][LARGEUR];
+
 
 	public Demineur(int hauteur, int largeur, int nbMines, int difficulte)
 	{
@@ -120,6 +123,18 @@ public class Demineur extends JFrame implements ActionListener
 	    this.getContentPane().add(fenetre);
 	    this.setVisible(true);
 
+	    
+	    for (int i=1; i<HAUTEUR; i++)
+	    {
+	    	for (int j=1; j<LARGEUR; j++)
+	    	{
+	    		String text = String.format("Button [%d, %d]", i, j);
+            	choix[i][j] = new JButton(text);
+	    		choix[i][j].setActionCommand("choix[i][j]");
+	    		choix[i][j].addActionListener(this);
+	    	}
+	    }
+
 	}
 
 	public void actionPerformed(ActionEvent evenement)
@@ -182,6 +197,11 @@ public class Demineur extends JFrame implements ActionListener
 				this.dispose();
 				new Demineur(16, 30, 99, 3);
 			}
+		}
+
+		if (evenement.getActionCommand().equals("choix[0][0]"))
+		{
+			System.exit(0);
 		}
 	}
 
