@@ -10,4 +10,9 @@ public class DCase extends JPanel implements MouseListener {
   private boolean bloque = false;
   private int num = 0;
 
+  public DCase() {
+
+  }
+
+
 }
