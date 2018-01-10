@@ -71,11 +71,14 @@ public class Demineur extends JFrame implements ActionListener
 		item7.setActionCommand("apropos_createurs");
 		item7.addActionListener(this);
 
+		Chrono chrono = new Chrono();
+		JTextField temps = new JTextField(chrono.getDureeTxt());
+
 		JPanel barreHaut = new JPanel();
 		barreHaut.setLayout(new BoxLayout(barreHaut, BoxLayout.LINE_AXIS));
 		barreHaut.add(new JButton("Bouton 1"));
 		barreHaut.add(new JButton("Bouton 2"));
-		barreHaut.add(new Chrono());
+		barreHaut.add(temps);
 
 		HAUTEUR = hauteur;
 		LARGEUR = largeur;
