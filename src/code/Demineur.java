@@ -172,12 +172,12 @@ public class Demineur extends JFrame implements ActionListener
 				this.dispose();
 				new Demineur(8, 8, 10, 1);
 			}
-			else if(DIFF==1)
+			else if(DIFF==2)
 			{
 				this.dispose();
 				new Demineur(16, 16, 40, 2);
 			}
-			else if(DIFF==1)
+			else if(DIFF==3)
 			{
 				this.dispose();
 				new Demineur(16, 30, 99, 3);
