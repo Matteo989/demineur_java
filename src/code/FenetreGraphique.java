@@ -82,7 +82,7 @@ public class FenetreGraphique extends JFrame implements ActionListener
 		if (evenement.getActionCommand().equals("partie_debutant"))
 		{
 			setSize(300,300);
-			this.add(new Demineur(8, 8));
+			new Demineur(8, 8);
 		}
 
 		if (evenement.getActionCommand().equals("partie_inter"))
