@@ -16,6 +16,7 @@ public class Demineur extends JFrame
 		LARGEUR = largeur;
 		cases_libres = LARGEUR*HAUTEUR;
 		setSize(HAUTEUR*16,LARGEUR*16);
+		setResizable(false);
 		GridLayout gl = new GridLayout();
 	    gl.setColumns(LARGEUR);
 	    gl.setRows(HAUTEUR);
