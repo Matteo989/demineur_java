@@ -99,18 +99,21 @@ public class Demineur extends JFrame implements ActionListener
 
 		if (evenement.getActionCommand().equals("partie_debutant"))
 		{
+			this.dispose();
 			setSize(300,300);
 			new Demineur(8, 8);
 		}
 
 		if (evenement.getActionCommand().equals("partie_inter"))
 		{
+			this.dispose();
 			setSize(400,600);
 			new Demineur(16, 16);
 		}
 
 		if (evenement.getActionCommand().equals("partie_expert"))
 		{
+			this.dispose();
 			setSize(800,600);
 			new Demineur(16, 30);
 		}
