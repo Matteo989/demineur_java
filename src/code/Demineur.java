@@ -15,16 +15,20 @@ public class Demineur extends JFrame
 	{
 		HAUTEUR = hauteur;
 		LARGEUR = largeur;
-		cases_libres=HAUTEUR * LARGEUR;
-		test = new Casem[HAUTEUR][LARGEUR];
+		cases_libres = LARGEUR*HAUTEUR;
+		
+		GridLayout gl = new GridLayout();
+	    gl.setColumns(LARGEUR);
+	    gl.setRows(HAUTEUR);
+	    this.setLayout(gl);
 
-		for (int i = 0; i < HAUTEUR; i++)
-		{
-			for (int j = 0; j < LARGEUR; j++)
-			{
-				test[i][j] = new Casem();
-			}
-		}
+	    for (int i=0; i < cases_libres; i++)
+	    {   
+	        getContentPane().display(new JButton(""));
+	    }
+
+	    this.setVisible(true);
+	  	
    
 	}
 }
