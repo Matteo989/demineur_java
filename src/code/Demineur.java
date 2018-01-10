@@ -12,10 +12,12 @@ public class Demineur extends JFrame implements ActionListener
 	private int cases_libres;
 	private int nbMines;
 	private int DIFF;
+	private String mines;
+	int nDrapeau = 0;
 	private Segment affichageMines = new Segment();
 	private Segment affichageTemps = new Segment();
 	private Temps temps = new Temps(affichageTemps);
-	private JButton nouveau = new JButton(new ImageIcon("../images/good.png"));
+	private JButton btNouveau = new JButton(new ImageIcon("../images/good.png"));
 	private Icon good, loose, search, win;
 
 	public Demineur(int hauteur, int largeur, int nbMines, int difficulte)
@@ -78,20 +80,20 @@ public class Demineur extends JFrame implements ActionListener
 		item7.setActionCommand("apropos_createurs");
 		item7.addActionListener(this);
 
-		nouveau.setActionCommand("nouveau");
-		nouveau.addActionListener(this);
+		btNouveau.setActionCommand("nouveau");
+		btNouveau.addActionListener(this);
 
 		affichageMines.setMaximumSize(new Dimension(49, 27));
 		affichageMines.setValeur(nbMines);
 		affichageTemps.setMaximumSize(new Dimension(49, 27));
-		nouveau.setMaximumSize(new Dimension(25, 25));
-		nouveau.setMinimumSize(new Dimension(25, 25));
-		nouveau.setPreferredSize(new Dimension(25,25));
+		btNouveau.setMaximumSize(new Dimension(25, 25));
+		btNouveau.setMinimumSize(new Dimension(25, 25));
+		btNouveau.setPreferredSize(new Dimension(25,25));
 
 		JPanel barreHaut = new JPanel();
 		barreHaut.setLayout(new BoxLayout(barreHaut, BoxLayout.LINE_AXIS));
 		barreHaut.add(affichageMines, null);
-		barreHaut.add(nouveau);
+		barreHaut.add(btNouveau);
 		barreHaut.add(affichageTemps, null);
 
 		HAUTEUR = hauteur;
@@ -167,25 +169,29 @@ public class Demineur extends JFrame implements ActionListener
 
 		if (evenement.getActionCommand().equals("nouveau"))
 		{
-			this.dispose();
-			if (DIFF==1)
-			{
-				new Demineur(8, 8, 10, 1);
-			}
-			else if (DIFF==2)
-			{
-				new Demineur(16, 16, 40, 2);
-			}
-			else if (DIFF==3)
-			{
-				new Demineur(16, 30, 99, 3);
-			}
+			nouveau();
 		}
 	}
 
 	public void nouveau()
 	{
+		temps.cancel();
+		btNouveau.setIcon(good); 
+		nDrapeau = 0;
+		cases_libres = HAUTEUR * LARGEUR;
+    	affichageMines.setValeur(nbMines);
+    	affichageTemps.setValeur(0);
 
+	    //Génération des mines
+	    //dans la chaîne, 1=mine 0=rien
+	    //on créé le bon nombre de mines puis on complète par des cases vides jusqu'à obtenir le nombre de cases total
+	    mines = "";
+	    for (int i = 0; i < nbMines; i++) mines = mines + "1";
+	    while (mines.length() < HAUTEUR * LARGEUR)
+	    {
+			int i = (int) (Math.random() * (mines.length() + 1));
+			mines = mines.substring(0, i) + "0" + mines.substring(i);
+		}
 	}
 
 	class GestionnaireFenetre extends WindowAdapter

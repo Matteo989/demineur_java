@@ -1,11 +1,11 @@
 public class Temps implements Runnable {
   Thread thread;
-  Segment aff;
+  Segment affichage;
   boolean marche=true;
   boolean threadSuspended=false;
 
   public Temps(Segment compteur) {
-    aff=compteur;
+    affichage=compteur;
   }
   public void run() {
     while (marche) {
@@ -19,9 +19,9 @@ public class Temps implements Runnable {
         }
       }
       catch(java.lang.InterruptedException e) {}
-      int time = aff.getValeur();
-      if (marche && time<999) {//faire plus de 999s, c'est quand même beaucoup...
-        aff.setValeur(time+1);
+      int time = affichage.getValeur();
+      if (marche && time<999) {
+        affichage.setValeur(time+1);
       }
 
     }
