@@ -10,13 +10,14 @@ public class Demineur extends JFrame implements ActionListener
 	private int LARGEUR;
 	private int HAUTEUR;
 	private int cases_libres;
+	private int nbMines;
 	private Segment affMines = new Segment();
 	private Segment affTemps = new Segment();
 	private Temps temps = new Temps(affTemps);
 	private JButton nouveau = new JButton(new ImageIcon("../images/good.png"));
 	private Icon good, loose, search, win;
 
-	public Demineur(int hauteur, int largeur)
+	public Demineur(int hauteur, int largeur, int nbMines)
 	{
 
 		setTitle("Demineur");
@@ -77,6 +78,7 @@ public class Demineur extends JFrame implements ActionListener
 		item7.addActionListener(this);
 
 		affMines.setMaximumSize(new Dimension(49, 27));
+		affMines.setValeur(nbMines);
 		affTemps.setMaximumSize(new Dimension(49, 27));
 		nouveau.setMaximumSize(new Dimension(25, 25));
 		nouveau.setMinimumSize(new Dimension(25, 25));
@@ -128,19 +130,19 @@ public class Demineur extends JFrame implements ActionListener
 		if (evenement.getActionCommand().equals("partie_debutant"))
 		{
 			this.dispose();
-			new Demineur(8, 8);
+			new Demineur(8, 8, 10);
 		}
 
 		if (evenement.getActionCommand().equals("partie_inter"))
 		{
 			this.dispose();
-			new Demineur(16, 16);
+			new Demineur(16, 16, 40);
 		}
 
 		if (evenement.getActionCommand().equals("partie_expert"))
 		{
 			this.dispose();
-			new Demineur(16, 30);
+			new Demineur(16, 30, 99);
 		}
 
 		if (evenement.getActionCommand().equals("partie_perso"))
