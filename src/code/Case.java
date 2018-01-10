@@ -6,7 +6,9 @@ import javax.swing.border.*;
 
 public class Case extends JButton
 {
+	//private etat = 0; // 1 2 3
 	public Case(){
 		new JButton("");
+
 	}
 }

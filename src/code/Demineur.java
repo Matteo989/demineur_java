@@ -75,7 +75,7 @@ public class Demineur extends JFrame implements ActionListener
 		barreHaut.setLayout(new BoxLayout(barreHaut, BoxLayout.LINE_AXIS));
 		barreHaut.add(new JButton("Bouton 1"));
 		barreHaut.add(new JButton("Bouton 2"));
-		barreHaut.add(new Timer());
+		barreHaut.add(new Chrono());
 
 		HAUTEUR = hauteur;
 		LARGEUR = largeur;
